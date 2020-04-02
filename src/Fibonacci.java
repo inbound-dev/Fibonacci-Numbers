@@ -10,6 +10,7 @@
  */
 public class Fibonacci extends javax.swing.JFrame {
     int f;
+    int text;
     /**
      * Creates new form Fibonacci
      */
@@ -59,6 +60,16 @@ public class Fibonacci extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(requested, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(enteredValue))
+                        .addComponent(jLabel2)))
+                .addGap(175, 175, 175))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -66,21 +77,11 @@ public class Fibonacci extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(calculate)))
                 .addContainerGap(96, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(calculate)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(enteredValue, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(requested, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(175, 175, 175))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,11 +116,12 @@ public class Fibonacci extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enteredValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enteredValueActionPerformed
-        f = Integer.parseInt(enteredValue.getText());
+
         
     }//GEN-LAST:event_enteredValueActionPerformed
 
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
+       f = Integer.parseInt(enteredValue.getText());
        Fibonacci(f); 
     }//GEN-LAST:event_calculateActionPerformed
 
@@ -157,18 +159,18 @@ public class Fibonacci extends javax.swing.JFrame {
             }
         });
     }
-    public void Fibonacci(int c){
-                 int a = c; 
-		 int b = 0;
-		 int d = 1;
-
-	        for (int i = 1; i <= a; ++i)
-	        {
-	            requested.setText(b+" ");
-	            int sum = b + d;
-	            b = d;
-	            d = sum;
-	        }
+    public int Fibonacci(int c){
+        for(int i =0; i < c; i++){
+            if(c == 1 || c == 2){
+            requested.setText("1");
+            }
+            else{
+            text = Fibonacci(c - 1) + Fibonacci(c - 2);
+            System.out.println(text);
+            //requested.setText(text);
+            }
+        }
+        return(1);
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
