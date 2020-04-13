@@ -160,18 +160,25 @@ public class Fibonacci extends javax.swing.JFrame {
         });
     }
     public int Fibonacci(int c){
-        for(int i =0; i < c; i++){
-            if(c == 1 || c == 2){
-            requested.setText("1");
+        int pointed = 0, num = (c-1) + (c-2);
+        
+        if(c == 1 || c == 2){
+            System.out.println("1");
+           requested.setText(String.valueOf(1));
+       }
+        for(int i= 0; i < 1; i++){
+            pointed = Fibonacci(c-1) + Fibonacci(c-2); // this causes stack overflow error
+            if(pointed == num){ 
+                System.out.println(pointed);
             }
             else{
-            text = Fibonacci(c - 1) + Fibonacci(c - 2);
-            System.out.println(text);
-            //requested.setText(text);
+                System.out.println();
             }
         }
+        
+        requested.setText(String.valueOf(pointed));
         return(1);
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton calculate;
